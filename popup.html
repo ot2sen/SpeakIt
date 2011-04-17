@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+	<head>
+		<title>A blank HTML5 page</title>
+		<meta charset="utf-8" />
+	</head>
+	<body>
+    <div align="center">
+		<img src="images/equalizer.gif" width="125" heigth="51" />
+		<div>
+    		<input id="play" type="button" value="Play" disabled="disabled" />
+    		<input id="pause" type="button" value="Pause" />
+    		<span id="duration"> </span>
+		</div>
+		<div align="left">
+    		Volume:
+    		<input id="volume" type="range" min="0" max="10" value="5" />
+		</div>
+    </div>
+	</body>
+</html>
+<script language="javascript" type="text/javascript">
+var bg = chrome.extension.getBackgroundPage();
+var play = document.getElementById('play');
+var pause = document.getElementById('pause');
+var volume = document.getElementById('volume');
+
+bg.getPageInfo();
+volume.addEventListener('change', function()
+{
+    bg.setVolume(parseFloat(this.value / 10));
+}, false);
+pause.addEventListener('click', function()
+{
+    bg.pauseAudio();
+	this.disabled = true;
+	play.disabled = false;
+}, false);
+play.addEventListener('click', function(){
+    bg.resumeAudio();
+	this.disabled = true;
+	pause.disabled = false;
+}, false);
+chrome.browserAction.setBadgeText({text:''});
+</script>
