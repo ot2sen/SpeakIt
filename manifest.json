@@ -1,8 +1,9 @@
 {
 	"name": "SpeakIt!",
-	"version": "0.1.2",
+	"version": "0.2",
 	"description": "Tired of reading? Select text you want to read and listen to it. SpeakIt converts text into speech so you no longer need to read.",
-	"background_page": "background.html",
+	"background_page": "speakit.html",
+	"options_page": "options.html",
 	"icons": { "128": "images/icon.png" },
 	
 	"browser_action": 
@@ -15,7 +16,6 @@
 	"permissions": 
 	[
 		"tabs",
-		"chrome://favicon/",
 		"http://*/*", 
 		"https://*/*"
 	],
@@ -24,7 +24,7 @@
 	[
 		{
 			"matches": ["http://*/*", "https://*/*"], 
-			"js": ["content_script.js"],
+			"js": ["js/content_script.js"],
 			"all_frames": true
 		}
 	]
