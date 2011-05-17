@@ -1,0 +1,214 @@
+/*
+ * SpeakIt GUI is based on ZEN HTML5-CSS3 Audio Player
+ * Author: simurai (simurai.com)
+ *
+ */
+
+#zen .player 
+{
+	/* With display: none; it doesn't work on iOS, below an alternative */
+	position: absolute;
+	width: 0;
+	height: 0;
+}
+#volume
+{
+	content: "";
+	position: relative;
+	display: inline-block;
+	z-index: 1;
+	border-radius: 100px;
+	margin: 0px auto;
+	box-shadow: 0px 1px 0px rgba(0,0,0,.1);
+    background: hsla(0,0%,0%,.05);
+	background: -webkit-gradient(radial, center top, 150, center top, 0, from(hsla(0,0%,100%,.5)), to(hsla(0,0%,50%,.1)));	
+	background: 	 radial-gradient(50% 0 180deg, circle farthest-side, hsla(0,0%,50%,.05), hsla(0,0%,100%,.4) );
+	cursor:pointer;
+}
+#zen
+{
+	position: absolute;
+	display: inline-block;
+	padding: 2px;
+	border-radius: 100px;
+	width: 100px;
+	height: 100px;
+	z-index:2;
+	margin:-128px 0px 0px 23px;
+	background-color: #000;
+	-webkit-box-shadow: rgba(255,255,255,.8) 0 2px 3px, rgba(0,0,0,.5) 0 -1px 2px;
+	box-shadow: rgba(255,255,255,.8) 0 2px 3px, rgba(0,0,0,.5) 0 -1px 2px;
+}
+#zen.play 
+{
+	cursor: -webkit-grab;
+	cursor: 		grab;
+}
+#zen.play:active
+{
+	cursor: -webkit-grabbing;
+	cursor: 		grabbing;
+}
+/* button */
+#zen .button 
+{	
+	position: absolute;
+	display: inline-block;
+	border: none;
+	border-radius: 50px;
+	width: 100px;
+	height: 100px;
+	
+	cursor: pointer;
+	
+	background: hsla(0,0%,50%,1); /* fallback */
+	background: #000 -webkit-gradient(radial, center top, 200, center top, 20, from(hsla(0,0%,100%,0)), to(hsla(0,0%,100%,.65)));	
+	background: #000 	  radial-gradient(50% 0 180deg, circle farthest-side, rgba(255, 255, 255, 0.65) 20%, rgba(255, 255, 255, .35) 100%);
+	
+	-webkit-box-shadow: inset rgba(0,0,0,0.2) 0 -3px 4px 1px, inset rgba(252,255,255,0.4) 0 2px 8px 0px, rgba(0,0,0,.8) 0 3px 8px -1px;
+			box-shadow: inset rgba(0,0,0,0.2) 0 -3px 4px 1px, inset rgba(252,255,255,0.4) 0 2px 8px 0px, rgba(0,0,0,.8) 0 3px 8px -1px;
+	
+	-webkit-transition: -webkit-transform .3s cubic-bezier(0,.5,.5,1), -webkit-border-radius .2s cubic-bezier(0,.5,0,1);	
+			transition: 		transform .3s cubic-bezier(0,.5,.5,1), 		   border-radius .2s cubic-bezier(0,.5,0,1);
+}
+#zen .button:active, #zen.play .button 
+{
+	-webkit-transform:  scale(.5);
+			transform:  scale(.5);
+	
+	background: hsla(0,0%,40%,1); /* fallback */
+	background: #000 -webkit-gradient(radial, center top, 200, center top, 20, from(hsla(0,0%,100%,0)), to(hsla(0,0%,100%,.48)));	
+	background: #000 	  radial-gradient(50% 0 180deg, circle farthest-side, rgba(255, 255, 255, 0.5) 20%, rgba(255, 255, 255, .28) 100%);
+
+	-webkit-box-shadow: inset rgba(0,0,0,0.5) 0 -4px 4px 1px, inset rgba(252,255,255,0.2) 0 6px 4px -2px, rgba(0,0,0,.6) 0 4px 4px 1px;	
+			box-shadow: inset rgba(0,0,0,0.5) 0 -4px 4px 1px, inset rgba(252,255,255,0.2) 0 6px 4px -2px, rgba(0,0,0,.6) 0 4px 4px 1px;	
+	
+	-webkit-transition: -webkit-transform .2s cubic-bezier(0,.5,0,1), -webkit-border-radius 1s cubic-bezier(0,.5,0,1);
+			transition: 		transform .2s cubic-bezier(0,.5,0,1), 		  border-radius 1s cubic-bezier(0,.5,0,1);
+}
+
+
+#zen .button:active, #zen.play .button:active 
+{
+	-webkit-transform:  scale(.5);	
+			transform:  scale(.5);	
+}
+#zen.play .button 
+{
+	border-radius: 30px;
+	-webkit-transform:  scale(.54);
+			transform:  scale(.54);	
+}
+/* icon */
+
+#zen .button .icon
+{
+	position: absolute;
+	display: inline-block;
+	top: 0;
+	width: 100px;
+	height: 100px;
+}
+#zen .button .icon.replay 
+{
+	background: url(../images/replay.png) no-repeat;
+	
+	-webkit-transition: opacity 1s cubic-bezier(.5,.5,.5,1);	
+			transition: opacity 1s cubic-bezier(.5,.5,.5,1);	
+	display:none;
+}
+
+#zen.play .button .replay
+{
+	opacity: 0;
+	
+	-webkit-transition: none;
+			transition: none;
+}
+
+#zen .button .icon.play 
+{
+	background: url(../images/play.png) no-repeat;
+	
+	-webkit-transition: opacity 1s cubic-bezier(.5,.5,.5,1);	
+			transition: opacity 1s cubic-bezier(.5,.5,.5,1);	
+}
+#zen.play .button .play
+{
+	opacity: 0;
+	
+	-webkit-transition: none;
+			transition: none;
+}
+
+#zen .button .icon.pause
+{
+	opacity: 0;	
+	background: url(../images/pause.png) no-repeat;
+}
+#zen.play .button .pause 
+{
+	opacity: 1;
+	
+	-webkit-transition: opacity 1s cubic-bezier(.5,.5,.5,1);	
+			transition: opacity 1s cubic-bezier(.5,.5,.5,1);	
+}
+/* progress */
+#zen .progress
+{
+	display: block;
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	background: url(../images/progress.png) no-repeat;
+	opacity: .85;
+	-webkit-transition: all 0s linear;
+}
+/* circle */
+#zen .circle 
+{
+	display: block;
+	position: absolute;
+	width: 98px;
+	height: 98px;
+	margin: 1px;
+	border-radius: 50px;
+	
+	background: url(../images/circle-still.png); /* fallback */
+	background: url(../images/circle-still.png) no-repeat, -webkit-gradient(radial, center center, 35, center center, 15, from(hsla(200,100%,0%,0)), to(hsla(200,100%,0%,1)));
+	background: url(../images/circle-still.png) no-repeat, 	  radial-gradient(50% 50%, hsla(200,100%,0%,1), hsla(200,100%,0%,1), hsla(200,100%,0%,0) 50%);
+		
+	background-color: hsl(100,100%,60%);
+	
+	-webkit-box-shadow: inset rgba(0,0,0,.5) 0 0 5px 3px;
+			box-shadow: inset rgba(0,0,0,.5) 0 0 5px 3px;
+	
+	-webkit-transform:  scale(.7) rotate(-180deg);
+			transform:  scale(.7) rotate(-180deg);
+	
+	-webkit-transition: all .5s ease-in;	
+			transition: all .5s ease-in;	
+}
+#zen.play .circle 
+{
+	background-color: hsl(200,100%,60%);	
+	
+	-webkit-transform: scale(1) rotate(0deg);
+			transform: scale(1) rotate(0deg);
+	
+	-webkit-transition: -webkit-transform 1s cubic-bezier(0,.5,0,1), background-color .6s linear;
+			transition: 		transform 1s cubic-bezier(0,.5,0,1), background-color .6s linear;
+	
+	-webkit-animation: rotate 20s linear infinite 1s;	
+}
+/* Record rotation only in webkit. Yes, could be done in JS, but I prefer CSS and it's not a showstopper, just visual. */
+#zen.play .circle.rotate 
+{
+	-webkit-animation: rotate 20s linear infinite;	
+}
+
+@-webkit-keyframes rotate 
+{
+	from { -webkit-transform: rotate(   0deg); } 
+	  to { -webkit-transform: rotate(-360deg); }
+}

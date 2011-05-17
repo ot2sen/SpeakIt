@@ -1,0 +1,40 @@
+
+/* 
+	
+	Just the page style, if you're looking for the player, see zen.css
+
+*/
+
+
+/* globals */
+
+body {
+	margin: 0 auto;
+	text-align: center;
+	padding:5px;
+}
+
+
+
+/* player */
+
+#zen {
+	margin: 30px 30px;
+}
+
+#error
+{
+	display:none;
+	cursor:pointer;
+	margin:5px 0px 5px 0px;
+}
+
+#donate
+{
+	width:110px;
+	height:23px;
+	background: url(../images/donate.gif) no-repeat;
+	margin:10px auto 0px auto;
+	cursor:pointer;
+	display:none;
+}
