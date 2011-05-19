@@ -39,6 +39,7 @@ function save_options()
   	var options =
 	{
 		donate : document.getElementById("donate").checked,
+		speechinput : document.getElementById("speechinput").checked,
 	}
 	localStorage.setItem("options", JSON.stringify(options));
 	var tip = document.getElementById('tip');
@@ -55,4 +56,5 @@ function restore_options()
 {
 	var options = JSON.parse(localStorage.getItem("options"));
 	document.getElementById("donate").checked = options.donate;
+	document.getElementById("speechinput").checked = options.speechinput;
 }

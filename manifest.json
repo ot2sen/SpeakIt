@@ -1,6 +1,6 @@
 {
 	"name": "SpeakIt!",
-	"version": "0.2",
+	"version": "0.2.1",
 	"description": "Tired of reading? Select text you want to read and listen to it. SpeakIt converts text into speech so you no longer need to read.",
 	"background_page": "speakit.html",
 	"options_page": "options.html",
@@ -24,8 +24,9 @@
 	[
 		{
 			"matches": ["http://*/*", "https://*/*"], 
-			"js": ["js/content_script.js"],
-			"all_frames": true
+			"js": ["js/addSpeech.js"],
+			"all_frames": true,
+			"run_at": "document_end"
 		}
 	]
 }

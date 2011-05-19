@@ -14,7 +14,7 @@
  * Defining main background variables
  * -----------------------------------------------------------------------------
 */
-	var debug = true; // make this true if you want to debug SpeakIt
+	var debug = false; // make this true if you want to debug SpeakIt
 	var gt = 'http://translate.google.com/translate_tts?tl=';// Google's TTS API
 	var audio = [];
 	var reloaded = [];
@@ -33,7 +33,9 @@
 function getPageInfo() 
 { 
 	// Injects the content script into the current page 
-    chrome.tabs.executeScript(null, { file: "js/content_script.js" }); 
+    chrome.tabs.executeScript(null, { file: "js/content_script.js" });
+	audio[0] = new Audio(); // defining two new audo objects each time 
+	audio[1] = new Audio();
 }; 
 
 /*
@@ -161,17 +163,25 @@ function readingProblems() // displays reading problems notification in popup
 		popup.showError();
 	}	
 }
+
 /*
  * -----------------------------------------------------------------------------
  * Perform the callback when a request is received from the content script
  * -----------------------------------------------------------------------------
 */
-chrome.extension.onRequest.addListener(function(request) 
-{ 
-	text = request.text; // get selected and formated text
-	if(text.length && text[0] != '') 
+chrome.extension.onRequest.addListener(function(request, sender, sendResponse) 
+{
+	if(request.method === undefined)
 	{
-		speakIt(text);
+		text = request.text; // get selected and formated text
+		if(text.length && text[0] != '') 
+		{
+			speakIt(text);
+		}
+	}
+	else
+	{
+		sendResponse({options: JSON.parse(localStorage.getItem("options"))});
 	}
 });
 
@@ -189,8 +199,6 @@ function speakIt(text)
 			i = 0; //reseting global variables
 			current = 0;
 			textstack = text;
-			audio[0] = new Audio(); // defining two audo objects (chanells)
-			audio[1] = new Audio();
 			lang = result.language;
 			url = gt+lang+'&q='; // assemble full TTS url
 			words = text.length;
