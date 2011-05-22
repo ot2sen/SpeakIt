@@ -7,23 +7,46 @@
  * @category	Core
  * @author		Trajche Petrov a.k.a SkechBoy
  * @link		https://github.com/skechboy/SpeakIt
- */
+*/
 
 /*
  * -----------------------------------------------------------------------------
  * Defining main background variables
  * -----------------------------------------------------------------------------
 */
-	var debug = false; // make this true if you want to debug SpeakIt
-	var gt = 'http://translate.google.com/translate_tts?tl=';// Google's TTS API
-	var audio = [];
-	var reloaded = [];
-	var datastack = [];
-	var textstack = [];
-	var words = 0;
-	var current = 0;
-	var i = 0;
-	var volume = 0.5;
+	var i = 0,
+		words = 0,
+		audio = [],
+		current = 0,
+		debug = true, // make this true if you want to debug SpeakIt
+		state = true,
+		reloaded = [],
+		datastack = [],
+		textstack = [],
+		gt = 'http://translate.google.com/translate_tts?tl=',// Google's TTS API
+		options = JSON.parse(localStorage.getItem("options"));
+
+/*
+ * -----------------------------------------------------------------------------
+ * Set default options
+ * -----------------------------------------------------------------------------
+*/
+(function(){
+	if(options == null)
+	{
+	  	options =
+		{
+			volume: 0.5,
+			context: true,			
+			donate : true,
+			speechinput : false,
+			hotkeys:"ctrl + shift + 83" // Ctrl+Shift+S default kb shortcut
+		}
+		localStorage.setItem("options", JSON.stringify(options));
+		options = JSON.parse(localStorage.getItem("options"));
+	}
+	var volume = options.volume;
+})();
 
 /*
  * -----------------------------------------------------------------------------
@@ -31,11 +54,12 @@
  * -----------------------------------------------------------------------------
 */
 function getPageInfo() 
-{ 
-	// Injects the content script into the current page 
-    chrome.tabs.executeScript(null, { file: "js/content_script.js" });
-	audio[0] = new Audio(); // defining two new audo objects each time 
-	audio[1] = new Audio();
+{
+	if(state)
+	{
+		// Injects the content script into the current page 
+	    chrome.tabs.executeScript(null, { file: "js/content_script.js" });
+	}
 }; 
 
 /*
@@ -82,6 +106,7 @@ function preloadAudio(channel,data)
 */
 function pauseAudio() // Pause Audio
 {
+	state = true;
 	audio[current].pause(); // pause current audio channel
 	if(debug) console.log('Audio channel: '+current+' was paused.');	
 }
@@ -110,6 +135,7 @@ function setVolume(value) // set volume
 
 function showReplay() // shows replay button in popup.html
 {
+	state = true;
 	var popups = chrome.extension.getViews({type: "popup"});
 	if (popups.length != 0)
 	{
@@ -156,6 +182,7 @@ function reloadAudio(channel)
 
 function readingProblems() // displays reading problems notification in popup
 {
+	state = true;
 	var popups = chrome.extension.getViews({type: "popup"});
 	if (popups.length != 0)
 	{
@@ -166,16 +193,44 @@ function readingProblems() // displays reading problems notification in popup
 
 /*
  * -----------------------------------------------------------------------------
+ * On contex menu click function
+ * -----------------------------------------------------------------------------
+*/
+function contexMenu(selection)
+{
+	if(state)
+	{
+		audio[0] = new Audio(); // defining two new audo objects each time 
+		audio[1] = new Audio();
+		speakIt(filterText(selection.selectionText.toString()));
+	}
+}
+
+/*
+ * -----------------------------------------------------------------------------
+ * Create context Menu
+ * -----------------------------------------------------------------------------
+*/
+if(options.context)
+{
+	chrome.contextMenus.create({"title": "SpeakIt!", "contexts":["selection"],"onclick": contexMenu});	
+}
+
+/*
+ * -----------------------------------------------------------------------------
  * Perform the callback when a request is received from the content script
  * -----------------------------------------------------------------------------
 */
 chrome.extension.onRequest.addListener(function(request, sender, sendResponse) 
 {
+	console.log(request);
 	if(request.method === undefined)
 	{
-		text = request.text; // get selected and formated text
+		text = filterText(request.text); // get selected and formated text
 		if(text.length && text[0] != '') 
 		{
+			audio[0] = new Audio(); // defining two new audo objects each time 
+			audio[1] = new Audio();
 			speakIt(text);
 		}
 	}
@@ -198,6 +253,7 @@ function speakIt(text)
 		{
 			i = 0; //reseting global variables
 			current = 0;
+			state = false;
 			textstack = text;
 			lang = result.language;
 			url = gt+lang+'&q='; // assemble full TTS url
@@ -267,4 +323,61 @@ function speakIt(text)
 			alert("Sorry SpeakIt couldn't detect the input language.")
 		}
 	});
+}
+
+/*
+ * -----------------------------------------------------------------------------
+ *  Function for filtering text from "bad" characters and preppare text
+ *  for Google Text to Speech API
+ * -----------------------------------------------------------------------------
+*/	
+function filterText(text)
+{
+	var str = [],
+		maxlength = 70, // Max length of one sentence this is Google's fault :)
+		badchars = ["+","#","@","-","<",">","\n","!","?",":","&",'"',"  "],
+		replaces = ["+plus+","+sharp+","+at+","","","","",".",".",".","+and+","+quotes.+"," "];
+		
+	for(var i in badchars) // replacing bad chars
+	{
+		text = text.split(badchars[i]).join(replaces[i]);		
+	}
+
+	txtlen = text.length;
+	if(txtlen > maxlength)
+	{
+		text = text.split(' ');
+	
+		strlen = 0; j = 0; str = [];
+		lastword = 0; i=0;
+		while (j < Math.ceil(txtlen/maxlength))
+		{
+			for(i;strlen<maxlength;i++)
+			{
+				if(text[i] === undefined)
+				{
+					strlen = maxlength;
+				}
+				else
+				{
+					strlen = strlen + text[i].length;
+					if(str[j] == null)
+					{
+						str[j] = text[i];
+					}
+					else
+					{
+						str[j] += '+'+text[i];
+					}
+				}
+			}
+			strlen = 0;
+			j++;
+		}
+	}
+	else
+	{
+		str[0] = text.split(' ').join('+');
+	}
+	return str;
 }

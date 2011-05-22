@@ -7,22 +7,22 @@
  * @category	GUI
  * @author		Trajche Petrov a.k.a SkechBoy
  * @link		https://github.com/skechboy/SpeakIt
- */
+*/
 
 /*
  * -----------------------------------------------------------------------------
  * Defining main variables 
  * -----------------------------------------------------------------------------
 */
-	var prevstate = 0;
-	var status = 'pause'; // audio state
-	var bg = chrome.extension.getBackgroundPage(); // get background page
-	var button = document.getElementById('button');
-	var canvas = document.getElementById('volume');
-	var error = document.getElementById('error');
-	var donate = document.getElementById('donate');
-	var replaybtn = document.getElementById("replay");
-	var options = JSON.parse(localStorage.getItem("options"));
+	var prevstate = 0,
+		status = 'pause', // audio state
+		bg = chrome.extension.getBackgroundPage(), // get background page
+		button = document.getElementById('button'),
+		canvas = document.getElementById('volume'),
+		error = document.getElementById('error'),
+		donate = document.getElementById('donate'),
+		replaybtn = document.getElementById("replay"),
+		options = JSON.parse(localStorage.getItem("options"));
 
 /*
  * -----------------------------------------------------------------------------
@@ -207,7 +207,7 @@ function calculateVolume(x,y)
 */
 function showDonations()
 {
-	if(options == null || !options.donate)
+	if(options.donate)
 	{
 		donate.style.display = "block";		
 	}
@@ -220,6 +220,5 @@ function showDonations()
 */
 	showDonations();
 	bg.getPageInfo(); // invoke SpeakIt main function
-	chrome.browserAction.setBadgeText({text:''});
 	onClick(false);
-	drawVolume(0.5);
+	drawVolume(options.volume);

@@ -4,7 +4,11 @@
 	"description": "Tired of reading? Select text you want to read and listen to it. SpeakIt converts text into speech so you no longer need to read.",
 	"background_page": "speakit.html",
 	"options_page": "options.html",
-	"icons": { "128": "images/icon.png" },
+	"icons": 
+	{ 
+		"16": "small_icon.png",
+		"128": "images/icon.png"
+	},
 	
 	"browser_action": 
 	{
@@ -16,6 +20,7 @@
 	"permissions": 
 	[
 		"tabs",
+		"contextMenus",
 		"http://*/*", 
 		"https://*/*"
 	],

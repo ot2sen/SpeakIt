@@ -1,7 +1,7 @@
 /*
  * SpeakIt Speech Input
  *
- * This file contains SpeakIt speech input functions
+ * This file contains SpeakIt speech input and shortcut's functions
  *
  * @package		SpeakIt
  * @category	Speech Input
@@ -16,8 +16,24 @@
 */
 chrome.extension.sendRequest({method: "getOptions"}, function(response)
 {
-	var options = response.options;
-	if(options != null && options.speechinput)
+	var options = response.options,
+		ctrl = /ctrl/.test(options.hotkeys),
+		shift = /shift/.test(options.hotkeys),
+		alt = /alt/.test(options.hotkeys),
+		code = options.hotkeys.substr(options.hotkeys.lastIndexOf('+') + 2);
+	
+	document.addEventListener("keydown", function (e)
+	{
+		if(e.keyCode == code && e.ctrlKey == ctrl && e.shiftKey == shift && e.altKey == alt)
+		{
+			e.preventDefault();
+			var selected = {"text": window.getSelection().toString(), "method": undefined};
+			chrome.extension.sendRequest(selected);
+			return false;
+		}
+	}, false);
+		
+	if(options.speechinput)
 	{
 		addSpeech();
 	}

@@ -209,3 +209,14 @@ a
     position: relative;
     z-index: 3;
 }
+#contx_info
+{
+	font-size:10px;
+	padding:0px 0px 0px 20px;
+	color:#F00;
+	display:none;
+}
+label
+{
+	cursor:pointer;
+}

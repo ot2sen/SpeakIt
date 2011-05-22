@@ -8,7 +8,24 @@
  * @author		Trajche Petrov a.k.a SkechBoy
  * @link		https://github.com/skechboy/SpeakIt
  */
+	var hotkey = "",
+		hotkeys = document.getElementById("hotkeys"),
+		donate = document.getElementById("donate"),
+		context = document.getElementById("context"),
+		speechinput = document.getElementById("speechinput");
+		
 
+/*
+ * -----------------------------------------------------------------------------
+ * Show info that chrome restart is required
+ * -----------------------------------------------------------------------------
+*/
+	context.addEventListener('click', function()
+	{
+		document.getElementById("contx_info").style.display = "block";
+	});
+	
+	hotkeys.addEventListener("keydown", keyDown, false);
 /*
  * -----------------------------------------------------------------------------
  * Check if Local Storage is avalible
@@ -38,10 +55,13 @@ function save_options()
 
   	var options =
 	{
-		donate : document.getElementById("donate").checked,
-		speechinput : document.getElementById("speechinput").checked,
+		donate :  donate.checked,
+		speechinput : speechinput.checked,
+		context: context.checked,
+		hotkeys: hotkey
 	}
 	localStorage.setItem("options", JSON.stringify(options));
+	
 	var tip = document.getElementById('tip');
 	tip.innerHTML = "Your settings were successfully saved."
 	tip.style.display = "block";
@@ -54,7 +74,36 @@ function save_options()
 */
 function restore_options()
 {
-	var options = JSON.parse(localStorage.getItem("options"));
-	document.getElementById("donate").checked = options.donate;
-	document.getElementById("speechinput").checked = options.speechinput;
+	options = JSON.parse(localStorage.getItem("options"));
+	donate.checked = options.donate;
+	speechinput.checked = options.speechinput;
+	context.checked = options.context;
+	hotkey_value = getHotkeys(options.hotkeys);
+	hotkeys.value = hotkey_value;
+	hotkey = options.hotkeys;
+}
+
+function getHotkeys(keys)
+{
+	return keys.substr(0,keys.lastIndexOf('+')+2)+CharCode(keys.substr(keys.lastIndexOf('+')+2,2));	
+}
+
+function CharCode(code)
+{
+	return String.fromCharCode(code).toLowerCase();		
+}
+function keyDown(e)
+{
+	out = "";
+	if(e.ctrlKey) out += "ctrl + ";
+	if(e.shiftKey) out += "shift + ";
+	if(e.altKey) out += "alt + ";
+	if(e.metaKey) out += "meta + ";
+
+	code = e.keyCode;
+	code = code == 16 ||code == 17 ||code == 18?null:code;
+	e.target.value = out + CharCode(code);
+	hotkey = out + code;
+	e.preventDefault();
+	return false;
 }
