@@ -22,6 +22,7 @@
 		error = document.getElementById('error'),
 		donate = document.getElementById('donate'),
 		replaybtn = document.getElementById("replay"),
+		play = document.getElementById("play"),
 		options = JSON.parse(localStorage.getItem("options"));
 
 /*
@@ -36,14 +37,19 @@
 	    bg.setVolume(parseFloat(volume));
 	}, false);
 
-	button.addEventListener('click', function() // Audio state
+	play.addEventListener('click', function() // Audio state
 	{
-		onClick(false);
+		bg.resumeAudio();	
 	}, false);
 	
 	replaybtn.addEventListener('click', function() // Audio state
 	{
 		bg.replayAudio();
+	}, false);
+
+	button.addEventListener('click', function() // Audio state
+	{
+		onClick(false);
 	}, false);
 	
 	error.addEventListener('click', function()
@@ -57,7 +63,7 @@
 		// redirect's to paypal donation page all donations are welcomed :) :)
 		chrome.tabs.create({url: 'http://goo.gl/zACwV'});		
 	});
-
+	
 /*
  * -----------------------------------------------------------------------------
  * Manipulating onClick button event
@@ -87,7 +93,6 @@ function onClick(replay)
 			status = "play";
 			circle.className = "circle rotate";
 			zen.className = "play";
-			bg.resumeAudio();
 		}
 		else 
 		{
@@ -219,6 +224,6 @@ function showDonations()
  * -----------------------------------------------------------------------------
 */
 	showDonations();
-	bg.getPageInfo(); // invoke SpeakIt main function
-	onClick(false);
+	bg.getSelection(); // invoke SpeakIt main function
+	if(!bg.getState()) { onClick(false); }
 	drawVolume(options.volume);

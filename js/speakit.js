@@ -17,9 +17,10 @@
 	var i = 0,
 		words = 0,
 		audio = [],
+		volume = 0;
 		current = 0,
 		debug = true, // make this true if you want to debug SpeakIt
-		state = true,
+		state = true, // curent playing state (playing OR paused)
 		reloaded = [],
 		datastack = [],
 		textstack = [],
@@ -32,7 +33,7 @@
  * -----------------------------------------------------------------------------
 */
 (function(){
-	if(options == null)
+	if(options == null || options.context === undefined)
 	{
 	  	options =
 		{
@@ -45,7 +46,7 @@
 		localStorage.setItem("options", JSON.stringify(options));
 		options = JSON.parse(localStorage.getItem("options"));
 	}
-	var volume = options.volume;
+	volume = options.volume;
 })();
 
 /*
@@ -53,13 +54,10 @@
  * This function is called onload in the popup code
  * -----------------------------------------------------------------------------
 */
-function getPageInfo() 
+function getSelection() 
 {
-	if(state)
-	{
-		// Injects the content script into the current page 
-	    chrome.tabs.executeScript(null, { file: "js/content_script.js" });
-	}
+	// Injects the content script into the current page 
+    chrome.tabs.executeScript(null, { file: "js/get_selection.js" });
 }; 
 
 /*
@@ -80,6 +78,7 @@ function playAudio(channel,data,first,firstdata)
 	preloadAudio(nextchannel,data);
 	words--;
 	updateNumber(words);
+	console.log('Play channel: '+channel);
 }
 
 /*
@@ -101,7 +100,7 @@ function preloadAudio(channel,data)
 
 /*
  * -----------------------------------------------------------------------------
- * Functions for controlling audio
+ * Playback functions for controlling audio
  * -----------------------------------------------------------------------------
 */
 function pauseAudio() // Pause Audio
@@ -115,6 +114,7 @@ function resumeAudio() // resume paused audio
 {
 	if(audio[current] !== undefined) // stupid bug but i'll fix that :) 
 	{
+		state = false;
 		audio[current].play(); // resume paused audio channel
 		if(debug) console.log('Audio channel: '+current+' was resumed.');		
 	}
@@ -136,6 +136,7 @@ function setVolume(value) // set volume
 function showReplay() // shows replay button in popup.html
 {
 	state = true;
+	//current = undefined;
 	var popups = chrome.extension.getViews({type: "popup"});
 	if (popups.length != 0)
 	{
@@ -154,6 +155,22 @@ function sendDuration(channel) // Send audio duration to popup.html
 		if(debug) console.log('Duration of audio in channel '+channel+' was sent. It is: '+audio[channel].duration+' seconds');
 	}
 }
+
+function nowPlaying() //Display current audio state
+{
+	var popups = chrome.extension.getViews({type: "popup"});
+	if (popups.length != 0)
+	{
+		var popup = popups[0];
+		popup.onClick(false);
+	}
+}
+
+function getState() //Return current audio state
+{
+	return state;
+}
+
 /*
  * -----------------------------------------------------------------------------
  * Error handling functions
@@ -161,7 +178,7 @@ function sendDuration(channel) // Send audio duration to popup.html
 */
 function handleError(channel)
 {
-	if(debug) console.log('Error in channel: '+channel);
+	console.log('Error in channel: '+channel);
 	reloadAudio(channel);
 }
 
@@ -169,7 +186,7 @@ function reloadAudio(channel)
 {
 	if(reloaded[channel] <= 3)
 	{
-		if(debug) console.log('Reloading channel: '+channel);
+		console.log('Reloading channel: '+channel);
 		audio[channel].src = datastack[channel];
 		audio[channel].preload = true;
 		reloaded[channel]++;
@@ -200,8 +217,6 @@ function contexMenu(selection)
 {
 	if(state)
 	{
-		audio[0] = new Audio(); // defining two new audo objects each time 
-		audio[1] = new Audio();
 		speakIt(filterText(selection.selectionText.toString()));
 	}
 }
@@ -223,14 +238,12 @@ if(options.context)
 */
 chrome.extension.onRequest.addListener(function(request, sender, sendResponse) 
 {
-	console.log(request);
 	if(request.method === undefined)
 	{
 		text = filterText(request.text); // get selected and formated text
-		if(text.length && text[0] != '') 
+		if(text.length && text[0] != '' && state) 
 		{
-			audio[0] = new Audio(); // defining two new audo objects each time 
-			audio[1] = new Audio();
+			nowPlaying();
 			speakIt(text);
 		}
 	}
@@ -258,6 +271,10 @@ function speakIt(text)
 			lang = result.language;
 			url = gt+lang+'&q='; // assemble full TTS url
 			words = text.length;
+			
+			audio = new Array();
+			audio[0] = new Audio(); // defining two new audo objects each time
+			audio[1] = new Audio();
 			
 			playAudio(i,url+text[i+1],1,url+text[i]); // Start first audio
 			
