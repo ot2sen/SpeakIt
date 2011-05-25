@@ -1,37 +1,42 @@
 <!doctype html>
 <html>
 	<head>
-		<title>Speakit - Options</title>
+		<title>SpeakIt! - Options</title>
 		<meta charset="utf-8" />
 		<link rel="stylesheet" href="css/options.css">
 	</head>
 	<body onLoad="restore_options()">
 		<div id="wrapper">
-			<div id="header"><h1>SpeakIt Options</h1></div>
+			<div id="header"><h1>SpeakIt! - Options</h1></div>
 			<div id="options">
 				<fieldset>
-					<legend>Shortcuts Setting</legend>
+					<legend>Shortcuts Settings</legend>
 					Keyboard shortcut: <input type="text" id="hotkeys"></input><br><br>
 					<label>
 						<input type="checkbox" id="context" />Enable SpeakIt contex menu shortcut.<br>
 					</label>
-					<span id="contx_info">Reload extension or restart Chrome for changes to take effect.</span>
+					<span id="contx_info">Restart Chrome for changes to take effect.</span>
 				</fieldset>
 				<fieldset>
 					<legend>Playback Settings</legend>
-					Default Volume Level:&nbsp;<input id="volume" type="range" min="0" max="100" value="50" />
+					Default Volume Level:&nbsp;<input id="volume" type="range" min="0" max="100" value="0" /> <span id="percents"></span>
 				</fieldset>
 				<fieldset>
 					<legend>Speech Input Settings</legend>
 					<label>
-						<input type="checkbox" id="speechinput" />Enable Speech Input feature.
+						<input type="checkbox" id="speechinput" />Enable Speech to Text feature.
 					</label>
 				</fieldset>
 				<fieldset>
 					<legend>PayPal donations</legend>
 					<label>
-						<input type="checkbox" id="donate" />Show PayPal donations button.
-					</label>
+						<input type="checkbox" id="donate" />Show PayPal donations button.</label><br/>
+							<span id="paypalinfo">
+								SpeakIt! is completly free, but if you like it please donate small 
+								amount to let me know about it and help funding future development of the 
+								project. All donations are greatly appreciated! <br/><b>Thank you!</b>
+								<div id="paypal"></div>
+							</span>
 				</fieldset>
 
 				<div id="tip">

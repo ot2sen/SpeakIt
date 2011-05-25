@@ -9,7 +9,7 @@ a
 }
 #wrapper 
 {
-	width:550px; margin:40px auto 80px auto;
+	width:550px; margin:40px auto 0px auto;
     border: 1px solid #fff; -webkit-box-shadow: #404040 0 5px 10px;
     background-color:#FFF;
     -webkit-border-radius:5px;
@@ -219,4 +219,26 @@ a
 label
 {
 	cursor:pointer;
+}
+#paypalinfo
+{
+	display:none;
+	font-size:11px;
+}
+#percents
+{
+	font-size:18px;
+	font-weight:bold;
+}
+#paypal
+{
+	width:110px;
+	height:23px;
+	background: url(../images/donate.gif) no-repeat;
+	cursor:pointer;
+	float:right;
+}
+#volume
+{
+	vertical-align:middle;
 }
