@@ -1,0 +1,74 @@
+﻿{
+   "desc":{
+      "message": "Tired of reading? Select text you want to read and listen to it. SpeakIt converts text into speech so you no longer need to read."
+   },
+   "title":{
+      "message": "Convert text to speech"
+   },
+   "lang_options": {
+      "message": "SpeakIt! - Options"
+   },
+   "lang_playback": {
+      "message": "Playback Settings"
+   },
+   "lang_volume": {
+      "message": "Default Volume Level"
+   },
+   "lang_shortcuts": {
+      "message": "Shortcuts Settings"
+   },
+   "lang_keyboard": {
+      "message": "Keyboard shortcut"
+   },
+   "lang_contex": {
+      "message": "Enable SpeakIt contex menu shortcut."
+   },
+   "contx_info": {
+      "message": "Restart Chrome for changes to take effect."
+   },
+   "lang_input": {
+      "message": "Speech Input Settings"
+   },
+   "lang_stt": {
+      "message": "Enable Speech to Text feature."
+   },
+   "lang_paypal": {
+      "message": "PayPal donations"
+   },
+   "lang_showpaypal": {
+      "message": "Show PayPal donations button."
+   },
+   "paypalinfo": {
+      "message": "SpeakIt! is completly free, but if you like it please donate small amount to let me know about it and help funding future development of the project. All donations are greatly appreciated! <br/><b>Thank you!</b><div id='paypal'></div>"
+   },
+   "lang_save": {
+      "message": "Save"
+   },
+   "tip": {
+      "message": "Your settings were successfully saved."
+   },
+   "lang_engine": {
+      "message": "Text to Speech engine"
+   },
+   "lang_rate": {
+      "message": "Speaking rate"
+   },
+   "lang_pitch": {
+      "message": "Speaking pitch"
+   },
+   "lang_enqueue": {
+      "message": "Enable enqueue mode"
+   },
+   "lang_voices": {
+      "message": "Want new voices?"
+   },
+   "lang_testing": {
+      "message": "Testing"
+   },
+   "lang_error": {
+      "message": "Can't hear anything? Click here!"
+   },
+   "lang_donate": {
+      "message": "Make A Donation"
+   }
+}
