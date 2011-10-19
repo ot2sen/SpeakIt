@@ -70,5 +70,11 @@
    },
    "lang_donate": {
       "message": "Make A Donation"
+   },
+   "lang_wpm": {
+      "message": "words/minute"
+   },
+   "lang_testtext": {
+      "message": "This is a test text for Google Chrome extension called SpeakIt"
    }
 }
