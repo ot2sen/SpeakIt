@@ -9,7 +9,7 @@
 /* globals */
 
 body {
-	margin: 0 auto;
+	margin: 0px
 	text-align: center;
 	padding:5px;
 }
@@ -19,7 +19,7 @@ body {
 /* player */
 
 #zen {
-	margin: 30px 30px;
+	margin:0px;
 }
 
 #error

@@ -9,7 +9,7 @@ a
 }
 #wrapper 
 {
-	width:550px; margin:40px auto 0px auto;
+	width:650px; margin:40px auto 0px auto;
     border: 1px solid #fff; -webkit-box-shadow: #404040 0 5px 10px;
     background-color:#FFF;
     -webkit-border-radius:5px;
@@ -49,7 +49,8 @@ a
 {
     border: 1px solid #eee;
     border-radius: 5px;
-    margin-bottom:20px; padding: 10px;
+    margin-bottom:10px;
+	padding:5px 10px 5px 10px;
 }
 #options fieldset legend
 {
@@ -109,14 +110,12 @@ a
     font-weight: bold;
 
     background-color: #7596db;
-    background: -moz-linear-gradient(center top , #a2c1f7, #7596db);
     background: -webkit-gradient(linear, 0 0, 0 100%, from(#a2c1f7), to(#7596db) );
 
     border-style: solid;
     border-width: 1px;
     border-color: #a2c1f7 #7596db #7596db #a2c1f7;
 
-    -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     border-radius: 5px;
 }
@@ -125,7 +124,6 @@ a
     color: #fff;
     
     background-color: hsl(0, 0%, 70%);
-    background: -moz-linear-gradient(center top , hsl(0, 0%, 80%), hsl(0, 0%, 60%));
     background: -webkit-gradient(linear, 0 0, 0 100%, from(hsl(0, 0%, 80%)), to(hsl(0, 0%, 60%)) );
 
     border-style: solid;
@@ -143,7 +141,6 @@ a
 .bt-grey.hover
 {
     background-color: hsl(0, 0%, 80%);
-    background: -moz-linear-gradient(center top , hsl(0, 0%, 60%), hsl(0, 0%, 80%));
     background: -webkit-gradient(linear, 0 0, 0 100%, from(hsl(0, 0%, 60%)), to(hsl(0, 0%, 80%)) );
 }
 
@@ -151,7 +148,6 @@ a
 .bt-grey.clicked
 {
     background-color: hsl(0, 0%, 90%);
-    background: -moz-linear-gradient(center top , hsl(0, 0%, 80%), hsl(0, 0%, 90%));
     background: -webkit-gradient(linear, 0 0, 0 100%, from(hsl(0, 0%, 80%)), to(hsl(0, 0%, 90%)) );
     border-color: hsl(0, 0%, 82%);
     outline: none;
@@ -161,14 +157,12 @@ a
 .bt-blue.hover
 {
     background-color: #84a6ed;
-    background: -moz-linear-gradient(center top , #7596db, #a2c1f7);
     background: -webkit-gradient(linear, 0 0, 0 100%, from(#7596db), to(#a2c1f7) );
 }
 .bt-blue:active,
 .bt-blue.clicked
 {
     background-color: #bed2f4;
-    background: -moz-linear-gradient(center top , #afc3e6, #bed2f4);
     background: -webkit-gradient(linear, 0 0, 0 100%, from(#afc3e6), to(#bed2f4) );
     border-color: #a9c4e2;
     outline: none;
@@ -199,9 +193,7 @@ a
     letter-spacing: -8px;
     opacity: 0.1;
     
-    -moz-transform: skewX(-30deg);
     -webkit-transform: skewX(-30deg);
-    -o-transform: skewX(-30deg);
 }
 
 .fx-stripes span 
@@ -227,7 +219,12 @@ label
 }
 #percents
 {
-	font-size:18px;
+	font-size:16px;
+	font-weight:bold;
+}
+#rateps
+{
+	font-size:16px;
 	font-weight:bold;
 }
 #paypal
@@ -238,7 +235,35 @@ label
 	cursor:pointer;
 	float:right;
 }
-#volume
+input
 {
 	vertical-align:middle;
+}
+input[type='range']
+{
+	cursor:pointer;
+}
+input[type='text']
+{
+	border:1px solid #CCC;
+	border-radius: 5px;
+	padding:0px 0px 0px 5px;
+	height:20px;
+}
+#lang_voices
+{
+	cursor:pointer;
+}
+#test
+{
+	display:inline-block;
+	background: url(../small_icon.png) no-repeat;
+	cursor:pointer;
+	width:25px;
+	height:20px;
+	margin:10px 0px -7px 0px;
+}
+#testtext
+{
+	width:450px;
 }

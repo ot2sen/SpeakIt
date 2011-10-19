@@ -1,49 +1,72 @@
 <!doctype html>
 <html>
 	<head>
-		<title>SpeakIt! - Options</title>
+		<title class="locale" id="lang_options">SpeakIt! - Options</title>
 		<meta charset="utf-8" />
 		<link rel="stylesheet" href="css/options.css">
 	</head>
 	<body onLoad="restore_options()">
 		<div id="wrapper">
-			<div id="header"><h1>SpeakIt! - Options</h1></div>
+			<div id="header"><h1 class="locale" id="lang_options">SpeakIt! - Options</h1></div>
 			<div id="options">
 				<fieldset>
-					<legend>Shortcuts Settings</legend>
-					Keyboard shortcut: <input type="text" id="hotkeys"></input><br><br>
+					<legend class="locale" id="lang_playback">Playback Settings</legend>
+			        <span id="lang_engine" class="locale">Text to Speech engine</span>:&nbsp;
+					<select id="voice" name="voice"></select> <span class="locale" id="lang_voices"></span>					
+					<table width="100%" border="0" cellspacing="0" cellpadding="2" style="text-align:left;">
+						<tr>
+							<td width="25%"><span id="lang_volume" class="locale">Default Volume Level</span>:&nbsp;</td>
+							<td><input id="volume" type="range" min="0" max="100" value="0" /> <span id="percents"></span></td>
+						</tr>
+					</table>
+					<div id="moreoptions" style="display:none">
+						<table width="100%" border="0" cellspacing="0" cellpadding="2" style="text-align:left;">
+							<tr>
+								<td><span id="lang_rate" class="locale">Speech rate</span>:&nbsp;</td>
+								<td><input id="rate" type="range" min="0.5" max="4.0" value="1.0" step="0.1"> <span id="rateps"></span> ~<span id="words">200</span> words/minute</td>
+							</tr>
+							<tr>
+								<td><span id="lang_pitch" class="locale">Pitch</span>:&nbsp;</td>
+								<td><input id="pitch" type="range" min="0.0" max="2.0" value="1.0" step="0.2"></td>
+							</tr>
+							<tr>
+								<td colspan="2"><input type="checkbox" disabled="disabled" id="enqueue" /><span id="lang_enqueue" class="locale">Enable enqueue mode</span></td>
+							</tr>
+						</table>
+					</div>
+				<span class="locale" id="lang_testing">Testing</span>: <input type="text" id="testtext" value="This is a test text for Google Chrome extension called SpeakIt"></input><div id="test"></div>
+				</fieldset>
+				<fieldset>
+					<legend class="locale" id="lang_shortcuts">Shortcuts Settings</legend>
+					<span class="locale" id="lang_keyboard">Keyboard shortcut</span> <input type="text" id="hotkeys"></input><br><br>
 					<label>
-						<input type="checkbox" id="context" />Enable SpeakIt contex menu shortcut.<br>
+						<input type="checkbox" id="context" /><span class="locale" id="lang_contex">Enable SpeakIt contex menu shortcut.</span><br>
 					</label>
-					<span id="contx_info">Restart Chrome for changes to take effect.</span>
+					<span class="locale" id="contx_info">Restart Chrome for changes to take effect.</span>
 				</fieldset>
 				<fieldset>
-					<legend>Playback Settings</legend>
-					Default Volume Level:&nbsp;<input id="volume" type="range" min="0" max="100" value="0" /> <span id="percents"></span>
-				</fieldset>
-				<fieldset>
-					<legend>Speech Input Settings</legend>
+					<legend class="locale" id="lang_input">Speech Input Settings</legend>
 					<label>
-						<input type="checkbox" id="speechinput" />Enable Speech to Text feature.
+						<input type="checkbox" id="speechinput" /><span class="locale" id="lang_stt">Enable Speech to Text feature</span>
 					</label>
 				</fieldset>
 				<fieldset>
-					<legend>PayPal donations</legend>
+					<legend class="locale" id="lang_paypal">PayPal donations</legend>
 					<label>
-						<input type="checkbox" id="donate" />Show PayPal donations button.</label><br/>
-							<span id="paypalinfo">
-								SpeakIt! is completly free, but if you like it please donate small 
-								amount to let me know about it and help funding future development of the 
-								project. All donations are greatly appreciated! <br/><b>Thank you!</b>
-								<div id="paypal"></div>
+						<input type="checkbox" id="donate" /><span class="locale" id="lang_showpaypal">Show PayPal donations button.</span></label><br/>
+							<span class="locale" id="paypalinfo">
+								SpeakIt! is completly free, but if you like it please donate small amount to let
+								me know about it and help funding future development of the project. All donations
+								are greatly appreciated! <br/><b>Thank you!</b><div id='paypal'></div>
 							</span>
 				</fieldset>
 
-				<div id="tip">
+				<div class="locale" id="tip">
+					Your settings were successfully saved.
 				</div>
 			</div>
 			<div id="action_panel">
-				<a class="bt-blue fx-stripes" href="#" onClick="save_options();"><span>Save</span></a>
+				<a class="bt-blue fx-stripes" href="#" onclick="save_options();"><span class="locale" id="lang_save">Save</span></a>
 			</div>
 		</div>
 	</body>

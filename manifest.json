@@ -1,7 +1,9 @@
 {
 	"name": "SpeakIt!",
-	"version": "0.2.2",
-	"description": "Tired of reading? Select text you want to read and listen to it. SpeakIt converts text into speech so you no longer need to read.",
+	"version": "0.2.3",
+	"minimum_chrome_version": "14",
+	"default_locale": "en",
+	"description": "__MSG_desc__",
 	"background_page": "speakit.html",
 	"options_page": "options.html",
 	"icons": 
@@ -12,23 +14,38 @@
 	
 	"browser_action": 
 	{
-		"default_title": "Convert text to speach",
+		"default_title": "__MSG_title__",
 		"default_icon": "small_icon.png",
 		"default_popup": "popup.html" 
 	},
 	
 	"permissions": 
 	[
-		"tabs",
+		"<all_urls>",
 		"contextMenus",
-		"http://*/*", 
+		"ttsEngine",
+		"tts", 
+		"tabs",
 		"https://*/*"
 	],
+	
+	"tts_engine":
+	{
+		"voices":
+		[
+			{
+				"voice_name": "SpeakIt!",
+				"lang": "en-US",
+				"gender": "female",
+				"event_types": ["start", "marker", "end"]
+			}
+		]
+	},
 	
 	"content_scripts": 
 	[
 		{
-			"matches": ["http://*/*", "https://*/*"], 
+			"matches": ["<all_urls>", "https://*/*"], 
 			"js": ["js/addSpeech.js"],
 			"all_frames": true,
 			"run_at": "document_end"

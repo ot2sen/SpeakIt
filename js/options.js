@@ -9,16 +9,23 @@
  * @link		https://github.com/skechboy/SpeakIt
  */
 	var hotkey = "",
-		bg = chrome.extension.getBackgroundPage(),
+		rate = document.getElementById("rate"),
+		test = document.getElementById("test"),
+		rateps = document.getElementById("rateps"),
+		pitch = document.getElementById("pitch"),
+		voice = document.getElementById("voice"),
+		bg = chrome.extension.getBackgroundPage(),	
 		paypal = document.getElementById("paypal"),
 		donate = document.getElementById("donate"),
 		volume = document.getElementById("volume"),
 		context = document.getElementById("context"),
+		words = document.getElementById("words"),
+		voices = document.getElementById("lang_voices"),
 		hotkeys = document.getElementById("hotkeys"),
+		enqueue = document.getElementById("enqueue"),
 		percents = document.getElementById("percents"),
 		speechinput = document.getElementById("speechinput");
 		
-
 /*
  * -----------------------------------------------------------------------------
  * Event listeners
@@ -34,10 +41,44 @@
 		toggle("paypalinfo");
 	});
 
+	test.addEventListener('click', function() //test listener
+	{
+		chrome.tts.speak
+		(
+			document.getElementById("testtext").value,
+			{
+				voiceName: voice.value,
+				enqueue: Boolean(enqueue.checked),
+		        rate: parseFloat(rate.value),
+				pitch: parseFloat(pitch.value),
+				volume: parseFloat(volume.value/100)
+			}
+		);
+	});
+
 	paypal.addEventListener('click', function()
 	{
 		// redirect's to paypal donation page all donations are welcomed :) :)
 		chrome.tabs.create({url: 'http://goo.gl/zACwV'});		
+	});
+
+	voice.addEventListener('change', function()
+	{
+		// Show additional options
+		if(this.value != 'SpeakIt!')
+		{
+			document.getElementById("moreoptions").style.display = 'block';				
+		}
+		else
+		{
+			document.getElementById("moreoptions").style.display = 'none';				
+		}
+	});
+	
+	voices.addEventListener('click', function()
+	{
+		// redirect's to Chrome Webstore for new TTS engines
+		chrome.tabs.create({url: 'http://goo.gl/dU9tB'});		
 	});
 
 	hotkeys.addEventListener("keydown", keyDown, false); // keyboard shortcuts
@@ -45,6 +86,12 @@
 	volume.addEventListener('change', function() // display volume level
 	{
 		percents.innerHTML = parseInt(this.value)+' %';
+	}, false);
+	
+	rate.addEventListener('change', function() // display rate
+	{
+		rateps.innerHTML = 'x'+parseFloat(this.value).toFixed(2);
+		words.innerHTML = Math.round(this.value*200);
 	}, false);
 /*
  * -----------------------------------------------------------------------------
@@ -75,6 +122,10 @@ function save_options()
 
   	var options =
 	{
+		rate :  rate.value,
+		voice :  voice.value,
+		pitch :  pitch.value,
+		enqueue :  enqueue.checked,
 		donate :  donate.checked,
 		speechinput : speechinput.checked,
 		context: context.checked,
@@ -85,7 +136,6 @@ function save_options()
 	
 	bg.setVolume(parseFloat(volume.value/100));
 	var tip = document.getElementById('tip');
-	tip.innerHTML = "Your settings were successfully saved."
 	tip.style.display = "block";
 	setTimeout("toggle(\"tip\")",3000);
 }
@@ -101,11 +151,16 @@ function restore_options()
 	donate.checked = options.donate;
 	speechinput.checked = options.speechinput;
 	context.checked = options.context;
+	enqueue.checked = options.enqueue;
 	hotkey_value = getHotkeys(options.hotkeys);
 	hotkeys.value = hotkey_value;
 	hotkey = options.hotkeys;
+	
+	rate.value = options.rate;
+	pitch.value = options.pitch;
 	volume.value = parseInt(options.volume*100);
 	percents.innerHTML = volume.value+' %';
+	rateps.innerHTML = 'x'+rate.value
 	if(!options.donate)
 	{
 		document.getElementById("paypalinfo").style.display = "block";
@@ -166,3 +221,62 @@ function toggle(id)
        else
           elem.style.display = 'block';
 }
+
+/*
+ * -----------------------------------------------------------------------------
+ * Load extension localized messages and descriptions
+ * -----------------------------------------------------------------------------
+*/
+function setLocales()
+{
+	locales = document.getElementsByClassName('locale');
+	locales = Array.prototype.slice.call(locales);
+	
+	for(i=0;locales.length;i++)
+	{
+		if(locales[i] === undefined) break; //Fix 4 Uncaught error
+		locales[i].innerHTML = chrome.i18n.getMessage(locales[i].id);		
+	}
+}
+
+/*
+ * -----------------------------------------------------------------------------
+ * Get avalible TTS engines
+ * -----------------------------------------------------------------------------
+*/
+function getVoices()
+{
+	var voice = document.getElementById('voice');
+	var voiceArray = [];
+	chrome.tts.getVoices(function(va)
+	{
+		voiceArray = va;
+		for (var i = 0; i < voiceArray.length; i++)
+		{
+			var opt = document.createElement('option');
+			var name = voiceArray[i].voiceName;
+			
+			if (name == options.voice)
+			{
+				opt.setAttribute('selected', '');
+			}
+			opt.setAttribute('value', name);
+			opt.innerText = voiceArray[i].voiceName;
+			voice.appendChild(opt);
+		}
+		if(options.voice != 'SpeakIt!')
+		{
+			document.getElementById("moreoptions").style.display = 'block';	
+		}
+	});
+}
+
+/*
+ * -----------------------------------------------------------------------------
+ * Init main options variables and methods
+ * -----------------------------------------------------------------------------
+*/
+(function(){
+	getVoices();
+	setLocales();
+})();

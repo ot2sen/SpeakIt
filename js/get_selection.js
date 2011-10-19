@@ -14,5 +14,5 @@
  *  Sorry for that but again is Google's fault, damn Chrome is the safest
  *  browser ever build :) 
  * -----------------------------------------------------------------------------
-*/	
+*/
 chrome.extension.sendRequest({"text": window.getSelection().toString()});
