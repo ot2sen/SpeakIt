@@ -1,0 +1,80 @@
+﻿{
+   "desc":{
+      "message": "Fatigue de lire? Selectionnez le texte que vous vouliez lire et ecouter le , SpeakIt Converti le texte en parole ainsi vous n'avez plus а le lire."
+   },
+   "title":{
+      "message": "Convertir texte en parole"
+   },
+   "lang_options": {
+      "message": "SpeakIt! - Options"
+   },
+   "lang_playback": {
+      "message": "Preferences d'ecoute"
+   },
+   "lang_volume": {
+      "message": "Volume par defaut"
+   },
+   "lang_shortcuts": {
+      "message": "Preferences des raccourcis"
+   },
+   "lang_keyboard": {
+      "message": "Raccourci clavier"
+   },
+   "lang_contex": {
+      "message": "Activer les raccourcis du menu contextuelle de SpeakIt."
+   },
+   "contx_info": {
+      "message": "Redemarrer le navigateur Chrome pour que les changements prennent effets."
+   },
+   "lang_input": {
+      "message": "Preferences d'entree Vocale"
+   },
+   "lang_stt": {
+      "message": "Activer la transofrmation de texte en parole."
+   },
+   "lang_paypal": {
+      "message": "Donation PayPal"
+   },
+   "lang_showpaypal": {
+      "message": "Montrer le bouton de Donation via Paypal."
+   },
+   "paypalinfo": {
+      "message": "SpeakIt! est completement gratuit, si vous l'apprecie, s'il vous plait, faites une legere donation afin de soutenir ce logiciel et de permettre le financement futur du developement de celui-ci. Toutes les donations sont appreciees <br/><b>Merci !</b><div id='paypal'></div>"
+   },
+   "lang_save": {
+      "message": "Sauvegarder"
+   },
+   "tip": {
+      "message": "Vos preferences ont ete sauvegardees avec succes."
+   },
+   "lang_engine": {
+      "message": "Moteur de conversion de texte en parole"
+   },
+   "lang_rate": {
+      "message": "Vitesse d'elocution"
+   },
+   "lang_pitch": {
+      "message": "timbre de voix"
+   },
+   "lang_enqueue": {
+      "message": "Activer le mode de mise en liste de travail "
+   },
+   "lang_voices": {
+      "message": "Vous desirez d'autre voix?"
+   },
+   "lang_testing": {
+      "message": "Test"
+   },
+   "lang_error": {
+      "message": "Vous n'entendez rien? Clicquez ici!"
+   },
+   "lang_donate": {
+      "message": "Faire Une Donation"
+   },
+   "lang_wpm": {
+      "message": "Mots/minute"
+   },
+   "lang_testtext": {
+      "message": "Ceci est un test pour l'extension de Goole Chrome denommee SpeakIt"
+   }
+}
