@@ -1,0 +1,80 @@
+﻿{
+   "desc":{
+      "message": "Masz dość czytania? Zaznacz tekst który chcesz przeczytać i słuchaj. SpeakIt zamienia tekst na mowę żebyś nie musiał(a) więcej czytać."
+   },
+   "title":{
+      "message": "Zamień tekst na mowę"
+   },
+   "lang_options": {
+      "message": "SpeakIt - Opcje"
+   },
+   "lang_playback": {
+      "message": "Ustawienia odtwarzania"
+   },
+   "lang_volume": {
+      "message": "Domyślny poziom głośności"
+   },
+   "lang_shortcuts": {
+      "message": "Ustawienia skrótów"
+   },
+   "lang_keyboard": {
+      "message": "Skrót klawiaturowy"
+   },
+   "lang_contex": {
+      "message": "Włącz skrót SpeakIt w menu kontekstowym"
+   },
+   "contx_info": {
+      "message": "Uruchom ponownie Chrome aby uaktywnić zmiany"
+   },
+   "lang_input": {
+      "message": "Ustawienia wprowadzania mowy"
+   },
+   "lang_stt": {
+      "message": "Włącz możliwość zamiany mowy na tekst"
+   },
+   "lang_paypal": {
+      "message": "Donacje PayPal"
+   },
+   "lang_showpaypal": {
+      "message": "Pokaż przycisk donacji PayPal"
+   },
+   "paypalinfo": {
+      "message": "SpeakIt jest w pełni darmowy, ale jeśli się Tobie podoba to proszę przekaż małą donacje żeby mi o tym dać znać i żeby wesprzeć finansowo dalszy rozwój projektu. Wszystkie donacje są bardzo mile widziane! <br/><b>Dziękuję!</b><div id='paypal'></div>"
+   },
+   "lang_save": {
+      "message": "Zapisz"
+   },
+   "tip": {
+      "message": "Twoje ustawienia zostały pomyślnie zapisane"
+   },
+   "lang_engine": {
+      "message": "Silnik zamiany tekstu na mowę"
+   },
+   "lang_rate": {
+      "message": "Tępo mowy"
+   },
+   "lang_pitch": {
+      "message": "Tonacja mowy"
+   },
+   "lang_enqueue": {
+      "message": "Włącz tryb kolejkowania"
+   },
+   "lang_voices": {
+      "message": "Chcesz inne głosy?"
+   },
+   "lang_testing": {
+      "message": "Testuję"
+   },
+   "lang_error": {
+      "message": "Nic nie słychać? Kliknij tutaj!"
+   },
+   "lang_donate": {
+      "message": "Złóż donację"
+   },
+   "lang_wpm": {
+      "message": "słów/minute"
+   },
+   "lang_testtext": {
+      "message": "To jest testowy tekst dla rozszerzenia Google Chrome o nazwie SpeakIt"
+   }
+}
