@@ -325,84 +325,76 @@ chrome.extension.onRequest.addListener(function(request, sender, sendResponse)
 */
 function speakIt(text)
 {
-	google.language.detect(text[0], function(result) // detect language
+    chrome.tabs.detectLanguage(null,function(lang) //detect page language
 	{
-    	if (!result.error)
+		i = 0; //reseting global variables
+		current = 0;
+		state = false;
+		url = gt+lang+'&q='; // assemble full TTS url
+		words = text.length;
+		
+		audio = new Array();
+		audio[0] = new Audio(); // defining two new audo objects each time
+		audio[1] = new Audio();
+		
+		playAudio(i,url+text[i+1],1,url+text[i]); // Start first audio
+		
+		//Audio event listeners
+		audio[0].addEventListener("ended", function()
 		{
-			i = 0; //reseting global variables
-			current = 0;
-			state = false;
-			lang = result.language;
-			url = gt+lang+'&q='; // assemble full TTS url
-			words = text.length;
-
-			audio = new Array();
-			audio[0] = new Audio(); // defining two new audo objects each time
-			audio[1] = new Audio();
-
-			playAudio(i,url+text[i+1],1,url+text[i]); // Start first audio
-
-			//Audio event listeners
-			audio[0].addEventListener("ended", function()
+			++i;
+			if(i < text.length)
 			{
-				++i;
-				if(i < text.length)
-				{
-					playAudio(1,url+text[i+1],0,'');
-				}
-				else
-				{
-					showReplay();
-				}
-			}, true);
-
-			audio[1].addEventListener("ended", function() 
+				playAudio(1,url+text[i+1],0,'');
+			}
+			else
 			{
-				++i;
-				if(i < text.length)
-				{
-					playAudio(0,url+text[i+1],0,'');
-				}
-				else
-				{
-					showReplay();
-				}
-			}, true);
-
-			//Send audio duration when audio start to playing
-			audio[0].addEventListener("playing", function() 
-			{
-				sendDuration(0);
-			});
-			audio[1].addEventListener("playing", function() 
-			{
-				sendDuration(1);
-			});
-
-			//On audio load error caused by Google bot protection
-			audio[0].addEventListener("error", function() 
-			{
-				handleError(0);
-			});	
-			audio[1].addEventListener("error", function() 
-			{
-				handleError(1);
-			});
-
-			//On audio load error caused by Google bot protection
-			audio[0].addEventListener("staled", function() 
-			{
-				handleError(0);
-			});	
-			audio[1].addEventListener("staled", function() 
-			{
-				handleError(1);
-			});	
-		}
-		else
+				showReplay();
+			}
+		}, true);
+		
+		audio[1].addEventListener("ended", function() 
 		{
-			alert("Sorry SpeakIt couldn't detect the input language.")
-		}
+			++i;
+			if(i < text.length)
+			{
+				playAudio(0,url+text[i+1],0,'');
+			}
+			else
+			{
+				showReplay();
+			}
+		}, true);
+		
+		//Send audio duration when audio start to playing
+		audio[0].addEventListener("playing", function() 
+		{
+			sendDuration(0);
+		});
+		audio[1].addEventListener("playing", function() 
+		{
+			sendDuration(1);
+		});
+		
+		//On audio load error caused by Google bot protection
+		audio[0].addEventListener("error", function() 
+		{
+			handleError(0);
+		});	
+		audio[1].addEventListener("error", function() 
+		{
+			handleError(1);
+		});
+			
+		//On audio load error caused by Google bot protection
+		audio[0].addEventListener("staled", function() 
+		{
+			handleError(0);
+		});	
+		audio[1].addEventListener("staled", function() 
+		{
+			handleError(1);
+		});	
 	});
 }
 
