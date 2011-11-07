@@ -68,7 +68,7 @@ function getSelection()
 {
 	// Injects the content script into the current page 
     chrome.tabs.executeScript(null, { file: "js/get_selection.js" });
-}; 
+};
 
 /*
  * -----------------------------------------------------------------------------
@@ -252,10 +252,10 @@ function readingProblems() // displays reading problems notification in popup
 
 /*
  * -----------------------------------------------------------------------------
- * On contex menu click function
+ * On context menu click function
  * -----------------------------------------------------------------------------
 */
-function contexMenu(selection)
+function contextMenu(selection)
 {
 	options = JSON.parse(localStorage.getItem("options")); //must fix
 	if(state)
@@ -279,7 +279,7 @@ function contexMenu(selection)
 */
 if(options.context)
 {
-	chrome.contextMenus.create({"title": "SpeakIt!", "contexts":["selection"],"onclick": contexMenu});	
+	chrome.contextMenus.create({"title": "SpeakIt!", "contexts":["selection"],"onclick": contextMenu});	
 }
 
 /*
@@ -331,13 +331,13 @@ function speakIt(text)
 			lang = result.language;
 			url = gt+lang+'&q='; // assemble full TTS url
 			words = text.length;
-			
+
 			audio = new Array();
 			audio[0] = new Audio(); // defining two new audo objects each time
 			audio[1] = new Audio();
-			
+
 			playAudio(i,url+text[i+1],1,url+text[i]); // Start first audio
-			
+
 			//Audio event listeners
 			audio[0].addEventListener("ended", function()
 			{
@@ -351,7 +351,7 @@ function speakIt(text)
 					showReplay();
 				}
 			}, true);
-			
+
 			audio[1].addEventListener("ended", function() 
 			{
 				++i;
@@ -364,7 +364,7 @@ function speakIt(text)
 					showReplay();
 				}
 			}, true);
-			
+
 			//Send audio duration when audio start to playing
 			audio[0].addEventListener("playing", function() 
 			{
@@ -374,7 +374,7 @@ function speakIt(text)
 			{
 				sendDuration(1);
 			});
-			
+
 			//On audio load error caused by Google bot protection
 			audio[0].addEventListener("error", function() 
 			{
@@ -384,7 +384,7 @@ function speakIt(text)
 			{
 				handleError(1);
 			});
-			
+
 			//On audio load error caused by Google bot protection
 			audio[0].addEventListener("staled", function() 
 			{
@@ -447,55 +447,72 @@ function TTS_Speak(utterance,rp_state)
  *  for Google Text to Speech API
  * -----------------------------------------------------------------------------
 */	
+function split(string,maxlength)
+{
+    var result = [];
+    (function(string)
+    {
+        var index = string.substring(maxlength).indexOf(" ");
+        if( index == -1 ) return string ? result.push(string.split(' ').join('+')) : null;
+        result.push( string.substring(0, index + maxlength+1).trim().split(' ').join('+'));
+        arguments.callee.call(window, string.substring(index + maxlength+1));
+    })(string);
+       return result;
+}
+
+function beautify(string)
+{
+    return string.replace(/([+.,])$/, '').replace(/^([+.,])/, '');
+}
+
 function filterText(text)
 {
-	var str = [],
-		maxlength = 70, // Max length of one sentence this is Google's fault :)
-		badchars = ["+","#","@","-","<",">","\n","!","?",":","&",'"',"  "],
-		replaces = ["+plus+","+sharp+","+at+","","","","",".",".",".","+and+","+quotes.+"," "];
-	
-	for(var i in badchars) // replacing bad chars
-	{
-		text = text.split(badchars[i]).join(replaces[i]);		
-	}
+    var j = 0,
+    str = [],
+    tmpstr =[],
+    maxlength = 90, // Max length of one sentence this is Google's fault :)
+    badchars = ["+","#","@","-","<",">","\n","!","?",":","&",'"',"  ","。"],
+    replaces = [" plus "," sharp "," at ","","","","",".",".","."," and "," "," ","."];
+		
+    for(var i in badchars) // replacing bad chars
+    {
+    	text = text.split(badchars[i]).join(replaces[i]);		
+    }
 
-	txtlen = text.length;
-	if(txtlen > maxlength)
-	{
-		text = text.split(' ');
+    str = text.split(/([.,!?:])/i); // this is where magic happens :) :)
 	
-		strlen = 0; j = 0; str = [];
-		lastword = 0; i=0;
-		while (j < Math.ceil(txtlen/maxlength))
-		{
-			for(i;strlen<maxlength;i++)
-			{
-				if(text[i] === undefined)
-				{
-					strlen = maxlength;
-				}
-				else
-				{
-					strlen = strlen + text[i].length;
-					if(str[j] == null)
-					{
-						str[j] = text[i];
-					}
-					else
-					{
-						str[j] += '+'+text[i];
-					}
-				}
-			}
-			strlen = 0;
-			j++;
-		}
-	}
-	else
+    for(var i in str) //join and group sentences
+    {
+        if(tmpstr[j] === undefined)
 	{
-		str[0] = text.split(' ').join('+');
+            tmpstr[j] = '';
 	}
-	return str;
+		
+        if((tmpstr[j]+str[i]).length < maxlength)
+        {
+            tmpstr[j] = tmpstr[j]+str[i].split(' ').join('+');
+        }
+        else
+        {
+            tmpstr[j] = beautify(tmpstr[j]);
+            
+            if(str[i].length < maxlength)
+            {
+                j++;
+                tmpstr[j]=beautify(str[i].split(' ').join('+'));
+            }
+            else
+            {
+                sstr = split(str[i],maxlength);
+                for(x in sstr)
+                {
+                    j++;
+                    tmpstr[j] = beautify(sstr[x]);
+                }
+            }
+        }
+    }
+    return tmpstr.filter(String);
 }
 
 var speakListener = function(utterance, options, sendTtsEvent) {
