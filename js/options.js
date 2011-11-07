@@ -36,7 +36,7 @@
 		toggle("contx_info");
 	});
 	
-	donate.addEventListener('click', function() // togle paypal info
+	donate.addEventListener('click', function() // toggle paypal info
 	{
 		toggle("paypalinfo");
 	});
@@ -210,7 +210,7 @@ function keyDown(e)
 
 /*
  * -----------------------------------------------------------------------------
- * Togle's specified div element
+ * Toggle's specified div element
  * -----------------------------------------------------------------------------
 */
 function toggle(id)
