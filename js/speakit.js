@@ -66,9 +66,13 @@
 */
 function getSelection() 
 {
-	// Injects the content script into the current page 
-    chrome.tabs.executeScript(null, { file: "js/get_selection.js" });
-};
+    // Injects the content script into the current opened tab and all iframes
+    chrome.tabs.executeScript
+    (
+        null,
+        {file: 'js/get_selection.js', allFrames: true}
+    );
+}; 
 
 /*
  * -----------------------------------------------------------------------------
