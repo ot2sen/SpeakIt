@@ -1,0 +1,80 @@
+﻿{
+   "desc":{
+	  "message": "Trött på att läsa? Välj språket du vill läsa och lyssna på. SpeakIt! byter ut text till tal så du inte längre behöver läsa."
+   },
+   "title":{
+	  "message": "konverterar text till tal"
+   },
+   "lang_options": {
+	  "message": "SpeakIt! - Alternativ"
+   },
+   "lang_playback": {
+	  "message": "Uppspelnings inställningar"
+   },
+   "lang_volume": {
+	  "message": "Standard volym nivå"
+   },
+   "lang_shortcuts": {
+	  "message": "Genvägs inställningar"
+   },
+   "lang_keyboard": {
+	  "message": "tagentbord genväg"
+   },
+   "lang_contex": {
+	  "message": "Aktivera SpeakIT contex meny genvägar"
+   },
+   "contx_info": {
+	  "message": "Starta om Chrome för förändringar att ta effekt."
+   },
+   "lang_input": {
+	  "message": "Tal ingång inställningar"
+   },
+   "lang_stt": {
+	  "message": "Aktivera tal till text funktion."
+   },
+   "lang_paypal": {
+	  "message": "PayPal donationer"
+   },
+   "lang_showpaypal": {
+	  "message": "Visa PayPal donationer knappen."
+   },
+   "paypalinfo": {
+	  "message": "SpeakIt! är gratis, men om du gillar det så kan du donera ett litet belopp för att låta mig veta om de och hjälpa finansiering utveckling av projektet. All donationer är väldigt uppskattade.<br/><b>Tack!</b><div id='paypal'></div>"
+   },
+   "lang_save": {
+	  "message": "Spara"
+   },
+   "tip": {
+	  "message": "Dina inställningar sparades utan komplikationer."
+   },
+   "lang_engine": {
+	  "message": "Text till Tal motor"
+   },
+   "lang_rate": {
+	  "message": "Talande Takt"
+   },
+   "lang_pitch": {
+	  "message": "Talande Tonhöjd"
+   },
+   "lang_enqueue": {
+	  "message": "Aktivera enqueue läge"
+   },
+   "lang_voices": {
+	  "message": "Vill du ha nya röster?"
+   },
+   "lang_testing": {
+	  "message": "Testning"
+   },
+   "lang_error": {
+	  "message": "Kan du inte höra någonting? Klicka här!"
+   },
+   "lang_donate": {
+	  "message": "Gör en donation"
+   },
+   "lang_wpm": {
+	  "message": "ord/minut"
+   },
+   "lang_testtext": {
+	  "message": "Detta är ett test text för Google Chrome förlängning kallad SpeakIt"
+   }
+}
