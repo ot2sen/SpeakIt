@@ -1,0 +1,80 @@
+﻿{
+   "desc":{
+      "message": "Stanco di leggere? Selezione il testo che vuoi leggere e ascoltalo. Speaklt converte il testo in parole cosi non hai più bisogno di leggere."
+   },
+   "title":{
+      "message": "Converti il testo in parole"
+   },
+   "lang_options": {
+      "message": "Speaklt!- Opzioni"
+   },
+   "lang_playback": {
+      "message": "Impostazioni della riproduzione"
+   },
+   "lang_volume": {
+      "message": "Livello del volume"
+   },
+   "lang_shortcuts": {
+      "message": "Impostazioni dei tasti di scelta rapida"
+   },
+   "lang_keyboard": {
+      "message": "Tasti di scelta rapida"
+   },
+   "lang_contex": {
+      "message": "Abilita il menu dei tasti di scelta rapida di Speaktl."
+   },
+   "contx_info": {
+      "message": "Riapri Chrome affinchè i cambiamenti abbiano luogo."
+   },
+   "lang_input": {
+      "message": "Impostazione di Input delle parole"
+   },
+   "lang_stt": {
+      "message": "Enable Speech to Text feature."
+   },
+   "lang_paypal": {
+      "message": "Donazioni Paypal"
+   },
+   "lang_showpaypal": {
+      "message": "Mostra i tasti per le donazioni paypal."
+   },
+   "paypalinfo": {
+      "message": "SpeakIt! è completamente gratis, ma se ti piace dona un piccolo ammontare per farmi sapere che ne pensi e aiutare lo sviluppo futuro del progetto, per favore. Tutte le donazioni saranno gentilmente accettate<br/><b> Grazie!</b><div id='paypal'></div>"
+   },
+   "lang_save": {
+      "message": "Salva"
+   },
+   "tip": {
+      "message": "Le tue impostazioni sono state salvate con successo."
+   },
+   "lang_engine": {
+      "message": "Motore di cambiamento tra il testo e il parlato"
+   },
+   "lang_rate": {
+      "message": "Modo di parlare"
+   },
+   "lang_pitch": {
+      "message": "Intonazione del parlare"
+   },
+   "lang_enqueue": {
+      "message": "Abilita la modalità in coda"
+   },
+   "lang_voices": {
+      "message": "Vuoi nuove voci?"
+   },
+   "lang_testing": {
+      "message": "Testing"
+   },
+   "lang_error": {
+      "message": "Non riesci a sentire niente? Clicca qui!"
+   },
+   "lang_donate": {
+      "message": "Fai una donazione"
+   },
+   "lang_wpm": {
+      "message": "parole/minuti"
+   },
+   "lang_testtext": {
+      "message": "Questa è un test del testo per Google Chrome l'estensione è chiamata Speaklt"
+   }
+}
