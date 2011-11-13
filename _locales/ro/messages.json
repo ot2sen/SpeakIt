@@ -1,0 +1,80 @@
+﻿{
+   "desc":{
+	  "message": "Plictisit sa citesti? Selecteaza textul pe care vrei sa il citesti si asculta-l. SpeakIt transforma textul in sunet asadar nu va mai fi nevoie sa citesti."
+   },
+   "title":{
+	  "message": "Transforma in sunet"
+   },
+   "lang_options": {
+	  "message": "SpeakIt! - Optiuni"
+   },
+   "lang_playback": {
+	  "message": "Setari PlayBack"
+   },
+   "lang_volume": {
+	  "message": "Volum normal"
+   },
+   "lang_shortcuts": {
+	  "message": "Scurtatura la setari"
+   },
+   "lang_keyboard": {
+	  "message": "Scutratura la tastatura"
+   },
+   "lang_contex": {
+	  "message": "Activeaza scurtatura la contextul meniului SpeakIt."
+   },
+   "contx_info": {
+      "message": "Restarteaza Chrome pentru ca setarile sa aiba efect."
+   },
+   "lang_input": {
+	  "message": "Setari Sunet"
+   },
+   "lang_stt": {
+	  "message": "Activeaza optiunea transformarii sunetului in text."
+   },
+   "lang_paypal": {
+	  "message": "Donatii PayPal"
+   },
+   "lang_showpaypal": {
+	  "message": "Arata butonul de donatii PayPal."
+   },
+   "paypalinfo": {
+	  "message": "SpeakIt! este complet gratuit, dar daca ai putea dona o suma mica lasa-ma sa stiu si sa continui fondarea acestui proiect. Toate donatiile sunt apreciate! <br/><b>Multumim!</b><div id='paypal'></div>"
+   },
+   "lang_save": {
+	  "message": "Salveaza"
+   },
+   "tip": {
+	  "message": "Setarile s-au salvat cu succes."
+   },
+   "lang_engine": {
+	  "message": "Text in Sunet"
+   },
+   "lang_rate": {
+	  "message": "Rata vorbitului"
+   },
+   "lang_pitch": {
+	  "message": "Nivelul vorbitului"
+   },
+   "lang_enqueue": {
+	  "message": "Activeaza modul enqueue"
+   },
+   "lang_voices": {
+	  "message": "Vrei voci noi?"
+   },
+   "lang_testing": {
+	  "message": "In curs de testare"
+   },
+   "lang_error": {
+	  "message": "Nu poti auzi nimic?Click aici!"
+   },
+   "lang_donate": {
+	  "message": "Fai o Donatie"
+   },
+   "lang_wpm": {
+	  "message": "litere/minute"
+   },
+   "lang_testtext": {
+	  "message": "Acesta este un mesaj test pentru extensiunea aplicatiei Google Chrome numita SpeakIt"
+   }
+}
