@@ -1,0 +1,80 @@
+﻿{
+   "desc":{
+      "message": "Müde zu lesen? Wählen sie den gewünschten text und hören sie sich ihn an. SpeakIt wandelt texte in Sprache, so dass Sie texte nicht mehr lesen brauchen."
+   },
+   "title":{
+      "message": "Wandelt text zu sprache"
+   },
+   "lang_options": {
+      "message": "SpeakIt!-Optionen"
+   },
+   "lang_playback": {
+      "message": "Wiedergabe-Einstellungen"
+   },
+   "lang_volume": {
+      "message": "Lautstärke level"
+   },
+   "lang_shortcuts": {
+      "message": "Tastenkürzel-Einstellungen"
+   },
+   "lang_keyboard": {
+      "message": "Tastenkürzel"
+   },
+   "lang_contex": {
+      "message": "Aktiviere SpeakIt! Kontextmenü-Schnelltaste."
+   },
+   "contx_info": {
+      "message": "Starte Chrome neu, um die Änderungen zu aktivieren."
+   },
+   "lang_input": {
+      "message": "Spracheingangs-Einstellungen"
+   },
+   "lang_stt": {
+      "message": "Aktiviere sprachezu Text-Funktion."
+   },
+   "lang_paypal": {
+      "message": "PayPal Spenden"
+   },
+   "lang_showpaypal": {
+      "message": "Zeige PayPal spenden-taste."
+   },
+   "paypalinfo": {
+      "message": "SpeakIt!Ist komplettkostenlos, aberwir freuen uns über kleine Spenden. Lassen Sie es michbitte wissen, falls Sie gespendet haben.Sie helfendamitdie weitere entwicklung des projekts zu finanzieren. Für alle Spendensind wir sehr dankbar! <br/><b>Danke!</b><div id='paypal'></div>"
+   },
+   "lang_save": {
+      "message": "Speichern"
+   },
+   "tip": {
+      "message": "Ihre Einstellungenwurden erfolgreich gespeichert."
+   },
+   "lang_engine": {
+      "message": "Text in Spracheumwandeln"
+   },
+   "lang_rate": {
+      "message": "Sprechgeschwindigkeit"
+   },
+   "lang_pitch": {
+      "message": "Sprechtonhöhe"
+   },
+   "lang_enqueue": {
+      "message": "Aktiviere Wiedergabelisten-Modus"
+   },
+   "lang_voices": {
+      "message": "Möchten Sieneue Stimmen?"
+   },
+   "lang_testing": {
+      "message": "Testen"
+   },
+   "lang_error": {
+      "message": "Sie könnennichts hören? Klicken Sie bitte hier!"
+   },
+   "lang_donate": {
+      "message": "Spenden Sie bitte hier"
+   },
+   "lang_wpm": {
+      "message": "Worte/ Minute"
+   },
+   "lang_testtext": {
+      "message": "Dies ist eine test text für die Google Chrome-Erweiterung SpeakIt"
+   }
+}
