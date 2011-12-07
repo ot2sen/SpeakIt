@@ -24,6 +24,7 @@
 		hotkeys = document.getElementById("hotkeys"),
 		enqueue = document.getElementById("enqueue"),
 		percents = document.getElementById("percents"),
+		testtext = document.getElementById("testtext"),
 		speechinput = document.getElementById("speechinput");
 		
 /*
@@ -67,11 +68,13 @@
 		// Show additional options
 		if(this.value != 'SpeakIt!')
 		{
-			document.getElementById("moreoptions").style.display = 'block';				
+			document.getElementById("moreoptions").style.display = 'block';
+			testtext.value = "This is a test text for Google Chrome extension called SpeakIt";
 		}
 		else
 		{
-			document.getElementById("moreoptions").style.display = 'none';				
+			document.getElementById("moreoptions").style.display = 'none';
+			testtext.value = chrome.i18n.getMessage('lang_testtext');
 		}
 	});
 	
@@ -237,6 +240,7 @@ function setLocales()
 		if(locales[i] === undefined) break; //Fix 4 Uncaught error
 		locales[i].innerHTML = chrome.i18n.getMessage(locales[i].id);		
 	}
+    testtext.value = chrome.i18n.getMessage('lang_testtext');
 }
 
 /*
