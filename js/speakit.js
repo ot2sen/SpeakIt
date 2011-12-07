@@ -245,7 +245,7 @@ function reloadAudio(channel)
 
 function readingProblems() // displays reading problems notification in popup
 {
-	state = true;
+	pauseAudio();
 	var popups = chrome.extension.getViews({type: "popup"});
 	if (popups.length != 0)
 	{
@@ -407,7 +407,7 @@ function TTS_Speak(utterance,rp_state)
 {
 	options = JSON.parse(localStorage.getItem("options"));
 	
-	console.log(utterance);
+	if(debug) console.log(utterance);
 	
 	if(rp_state)
 	{
@@ -511,11 +511,17 @@ function filterText(text)
     return tmpstr.filter(String);
 }
 
-var speakListener = function(utterance, options, sendTtsEvent) {
-// sendTtsEvent({'event_type': 'start', 'charIndex': 0})
+/*
+ * -----------------------------------------------------------------------------
+ *  SpeakIt basic TTS engine functions
+ * -----------------------------------------------------------------------------
+*/	
+var speakListener = function(utterance, options, sendTtsEvent)
+{
+    // sendTtsEvent({'event_type': 'start', 'charIndex': 0})
 	nowPlaying();
 	speakIt(filterText(utterance));
-//sendTtsEvent({'event_type': 'end', 'charIndex': utterance.length})
+    //sendTtsEvent({'event_type': 'end', 'charIndex': utterance.length})
 };
 
 var stopListener = function()
@@ -523,5 +529,10 @@ var stopListener = function()
   pauseAudio();
 };
 
+/*
+ * -----------------------------------------------------------------------------
+ *  Add listeners and register SpeakIt as TTS engine
+ * -----------------------------------------------------------------------------
+*/	
 chrome.ttsEngine.onSpeak.addListener(speakListener);
 chrome.ttsEngine.onStop.addListener(stopListener);

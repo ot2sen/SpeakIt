@@ -1,6 +1,6 @@
 {
 	"name": "SpeakIt!",
-	"version": "0.2.3",
+	"version": "0.2.4",
 	"minimum_chrome_version": "14",
 	"default_locale": "en",
 	"description": "__MSG_desc__",
