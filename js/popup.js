@@ -124,6 +124,7 @@ function displayProgress(seconds)
 */
 function showError()
 {
+	error.innerHTML = chrome.i18n.getMessage('lang_error');
 	error.style.display = "block";
 }
 
