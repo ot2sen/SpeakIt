@@ -1,80 +1,80 @@
-ï»¿{
+{
    "desc":{
-      "message": "MÃ¼de zu lesen? WÃ¤hlen sie den gewÃ¼nschten text und hÃ¶ren sie sich ihn an. SpeakIt wandelt texte in Sprache, so dass Sie texte nicht mehr lesen brauchen."
+      "message": "Haben Sie genug vom Lesen? Markieren Sie Textstellen die Sie lesen möchten und hören Sie sie sich stattdessen an. SpeakIt wandelt Text in Sprache um, so dass Sie sich Texte vorlesen lassen können."
    },
    "title":{
-      "message": "Wandelt text zu sprache"
+      "message": "Wandelt Text in Sprache um"
    },
    "lang_options": {
-      "message": "SpeakIt!-Optionen"
+      "message": "SpeakIt! Einstellungen"
    },
    "lang_playback": {
       "message": "Wiedergabe-Einstellungen"
    },
    "lang_volume": {
-      "message": "LautstÃ¤rke level"
+      "message": "Lautstärke anpassen"
    },
    "lang_shortcuts": {
-      "message": "TastenkÃ¼rzel-Einstellungen"
+      "message": "Tastenkombinationen festlegen"
    },
    "lang_keyboard": {
-      "message": "TastenkÃ¼rzel"
+      "message": "Tastenkombination"
    },
    "lang_contex": {
-      "message": "Aktiviere SpeakIt! KontextmenÃ¼-Schnelltaste."
+      "message": "Tastenkombination für das SpeakIt! Kontextmenü aktivieren."
    },
    "contx_info": {
-      "message": "Starte Chrome neu, um die Ã„nderungen zu aktivieren."
+      "message": "Chrome neu starten, damit die Änderungen aktiv werden."
    },
    "lang_input": {
-      "message": "Spracheingangs-Einstellungen"
+      "message": "Einstellungen zur Spracheingabe"
    },
    "lang_stt": {
-      "message": "Aktiviere sprachezu Text-Funktion."
+      "message": "Sprache-zu-Text Funktion aktivieren."
    },
    "lang_paypal": {
-      "message": "PayPal Spenden"
+      "message": "Spenden mit PayPal"
    },
    "lang_showpaypal": {
-      "message": "Zeige PayPal spenden-taste."
+      "message": "PayPal Spenden-Button anzeigen."
    },
    "paypalinfo": {
-      "message": "SpeakIt!Ist komplettkostenlos, aberwir freuen uns Ã¼ber kleine Spenden. Lassen Sie es michbitte wissen, falls Sie gespendet haben.Sie helfendamitdie weitere entwicklung des projekts zu finanzieren. FÃ¼r alle Spendensind wir sehr dankbar! <br/><b>Danke!</b><div id='paypal'></div>"
+      "message": "SpeakIt! ist völlig kostenlos. Wenn es Ihnen gefällt, so zeigen Sie dies doch und spenden Sie einen kleinen Betrag, damit das Projekt auch in Zukunft weitergeführt werden kann. Für jede Spende bin ich Ihnen dankbar! <br/><b>Herzlichen Dank!</b><div id='paypal'></div>"
    },
    "lang_save": {
       "message": "Speichern"
    },
    "tip": {
-      "message": "Ihre Einstellungenwurden erfolgreich gespeichert."
+      "message": "Ihre Einstellungen wurden erfolgreich gespeichert."
    },
    "lang_engine": {
-      "message": "Text in Spracheumwandeln"
+      "message": "Algorithmus für Text-zu-Sprache"
    },
    "lang_rate": {
-      "message": "Sprechgeschwindigkeit"
+      "message": "Sprechtempo"
    },
    "lang_pitch": {
-      "message": "SprechtonhÃ¶he"
+      "message": "Sprechtonlage"
    },
    "lang_enqueue": {
-      "message": "Aktiviere Wiedergabelisten-Modus"
+      "message": "Warteschlangen-Modus aktivieren"
    },
    "lang_voices": {
-      "message": "MÃ¶chten Sieneue Stimmen?"
+      "message": "Suchen Sie neue Stimmen?"
    },
    "lang_testing": {
-      "message": "Testen"
+      "message": "Teste ..."
    },
    "lang_error": {
-      "message": "Sie kÃ¶nnennichts hÃ¶ren? Klicken Sie bitte hier!"
+      "message": "Nichts zu höhren? Klicken Sie bitte hier!"
    },
    "lang_donate": {
-      "message": "Spenden Sie bitte hier"
+      "message": "Etwas spenden"
    },
    "lang_wpm": {
       "message": "Worte/ Minute"
    },
    "lang_testtext": {
-      "message": "Dies ist eine test text fÃ¼r die Google Chrome-Erweiterung SpeakIt"
+      "message": "Dies ist ein Beispieltext für die Google Chrome Erweiterung SpeakIt"
    }
 }
