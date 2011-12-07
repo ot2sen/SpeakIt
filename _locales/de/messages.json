@@ -1,6 +1,6 @@
-{
+ï»¿{
    "desc":{
-      "message": "Haben Sie genug vom Lesen? Markieren Sie Textstellen die Sie lesen möchten und hören Sie sie sich stattdessen an. SpeakIt wandelt Text in Sprache um, so dass Sie sich Texte vorlesen lassen können."
+      "message": "Haben Sie genug vom Lesen? Markieren Sie Textstellen die Sie lesen mÑ†chten und hÑ†ren Sie sie sich stattdessen an. SpeakIt wandelt Text in Sprache um, so dass Sie sich Texte vorlesen lassen kÑ†nnen."
    },
    "title":{
       "message": "Wandelt Text in Sprache um"
@@ -12,7 +12,7 @@
       "message": "Wiedergabe-Einstellungen"
    },
    "lang_volume": {
-      "message": "Lautstärke anpassen"
+      "message": "LautstĞ´rke anpassen"
    },
    "lang_shortcuts": {
       "message": "Tastenkombinationen festlegen"
@@ -21,10 +21,10 @@
       "message": "Tastenkombination"
    },
    "lang_contex": {
-      "message": "Tastenkombination für das SpeakIt! Kontextmenü aktivieren."
+      "message": "Tastenkombination fÑŒr das SpeakIt! KontextmenÑŒ aktivieren."
    },
    "contx_info": {
-      "message": "Chrome neu starten, damit die Änderungen aktiv werden."
+      "message": "Chrome neu starten, damit die Ğ”nderungen aktiv werden."
    },
    "lang_input": {
       "message": "Einstellungen zur Spracheingabe"
@@ -39,7 +39,7 @@
       "message": "PayPal Spenden-Button anzeigen."
    },
    "paypalinfo": {
-      "message": "SpeakIt! ist völlig kostenlos. Wenn es Ihnen gefällt, so zeigen Sie dies doch und spenden Sie einen kleinen Betrag, damit das Projekt auch in Zukunft weitergeführt werden kann. Für jede Spende bin ich Ihnen dankbar! <br/><b>Herzlichen Dank!</b><div id='paypal'></div>"
+      "message": "SpeakIt! ist vÑ†llig kostenlos. Wenn es Ihnen gefĞ´llt, so zeigen Sie dies doch und spenden Sie einen kleinen Betrag, damit das Projekt auch in Zukunft weitergefÑŒhrt werden kann. FÑŒr jede Spende bin ich Ihnen dankbar! <br/><b>Herzlichen Dank!</b><div id='paypal'></div>"
    },
    "lang_save": {
       "message": "Speichern"
@@ -48,7 +48,7 @@
       "message": "Ihre Einstellungen wurden erfolgreich gespeichert."
    },
    "lang_engine": {
-      "message": "Algorithmus für Text-zu-Sprache"
+      "message": "Algorithmus fÑŒr Text-zu-Sprache"
    },
    "lang_rate": {
       "message": "Sprechtempo"
@@ -66,7 +66,7 @@
       "message": "Teste ..."
    },
    "lang_error": {
-      "message": "Nichts zu höhren? Klicken Sie bitte hier!"
+      "message": "Nichts zu hÑ†hren? Klicken Sie bitte hier!"
    },
    "lang_donate": {
       "message": "Etwas spenden"
@@ -75,6 +75,6 @@
       "message": "Worte/ Minute"
    },
    "lang_testtext": {
-      "message": "Dies ist ein Beispieltext für die Google Chrome Erweiterung SpeakIt"
+      "message": "Dies ist ein Beispieltext fÑŒr die Google Chrome Erweiterung SpeakIt"
    }
 }
