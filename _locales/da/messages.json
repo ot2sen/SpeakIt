@@ -1,0 +1,80 @@
+﻿{
+   "desc":{
+      "message": "Træt af at læse? Vælg teksten du ønsker at læse og lyt til den. SpeakIt konverterer tekst til tale så du ikke længere behøver at læse."
+   },
+   "title":{
+      "message": "Konverter tekst til tale"
+   },
+   "lang_options": {
+      "message": "SpeakIt! - Indstillinger"
+   },
+   "lang_playback": {
+      "message": "Afspilning indstillinger"
+   },
+   "lang_volume": {
+      "message": "Standard lydstyrke niveau"
+   },
+   "lang_shortcuts": {
+      "message": "Genveje indstillinger"
+   },
+   "lang_keyboard": {
+      "message": "Keyboard genveje"
+   },
+   "lang_contex": {
+      "message": "Aktiver SpeakIt kontekstmenu genvej."
+   },
+   "contx_info": {
+      "message": "Genstart Chrome for at tilføje ændringerne."
+   },
+   "lang_input": {
+      "message": "Tale indstillinger"
+   },
+   "lang_stt": {
+      "message": "Aktiver tale til tekst funktionen."
+   },
+   "lang_paypal": {
+      "message": "PayPal donationer"
+   },
+   "lang_showpaypal": {
+      "message": "Vis knap for PayPal donationer."
+   },
+   "paypalinfo": {
+      "message": "SpeakIt! er helt gratis, men hvis du synes om den så vær venlig at doner et mindre beløb så jeg kan vide det og hjælp med at støtte fremtidig udvikling af projektet. Alle donationer er meget værdsat! <br/><b>Tak!</b><div id='paypal'></div>"
+   },
+   "lang_save": {
+      "message": "Gem"
+   },
+   "tip": {
+      "message": "Dine indstillinger blev gemt."
+   },
+   "lang_engine": {
+      "message": "Tekst til tale motoren"
+   },
+   "lang_rate": {
+      "message": "Talehastighed"
+   },
+   "lang_pitch": {
+      "message": "Tale pitch"
+   },
+   "lang_enqueue": {
+      "message": "Aktiver enqueue modus"
+   },
+   "lang_voices": {
+      "message": "Ønsker du nye stemmer?"
+   },
+   "lang_testing": {
+      "message": "Test"
+   },
+   "lang_error": {
+      "message": "Kan du ikke høre noget? Klik her!"
+   },
+   "lang_donate": {
+      "message": "Giv en donation"
+   },
+   "lang_wpm": {
+      "message": "ord/minut"
+   },
+   "lang_testtext": {
+      "message": "Dette er en test tekst for Google Chrome udvidelsen SpeakIt"
+   }
+}
