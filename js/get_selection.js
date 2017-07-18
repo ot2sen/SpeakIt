@@ -15,4 +15,4 @@
  *  browser ever build :) 
  * -----------------------------------------------------------------------------
 */
-chrome.extension.sendRequest({"text": window.getSelection().toString()});
+chrome.extension.sendRequest({"text": window.getSelection().toString().replace(/[\u2019]/g, "'")});
